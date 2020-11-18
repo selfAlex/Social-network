@@ -8,6 +8,8 @@ DEBUG = True
 
 INSTALLED_APPS = [
 
+    'app'
+
 ]
 
 MIDDLEWARE = [
