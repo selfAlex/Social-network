@@ -1,5 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index_page(request):
-    return HttpResponse('<h1> Index page </h1>')
+    return render(request, 'app/index.html')
