@@ -8,7 +8,7 @@ DEBUG = True
 
 INSTALLED_APPS = [
 
-    'app'
+    'app.apps.MyAppConfig'
 
 ]
 
