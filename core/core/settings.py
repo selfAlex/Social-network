@@ -52,4 +52,4 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC+6'
+TIME_ZONE = 'Asia/Almaty'
