@@ -12,10 +12,15 @@ INSTALLED_APPS = [
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sessions',
 
     'app.apps.MyAppConfig'
 
 ]
+
+AUTH_USER_MODEL = 'app.User'
+
+LOGIN_URL = 'index_page'
 
 MIDDLEWARE = [
 
