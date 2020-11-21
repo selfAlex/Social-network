@@ -1,11 +1,106 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Social network
+Social network
 {% endblock %}
 
 {% block body %}
 
+<article class="uk-article">
 
+    <h1 class="uk-article-title">Social network</h1>
+
+    <p class="uk-text-lead">New acquaintances, new interests</p>
+
+    <p>Social networking is a modern, easy way to find new friends with the same interests</p>
+
+    <button class="uk-button uk-button-text" uk-toggle="target: #sign-in-modal" type="button">Sign in</button>
+    <button class="uk-button uk-button-text" uk-toggle="target: #sign-up-modal" type="button">Sign up</button>
+
+    <div id="sign-in-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+
+            <button class="uk-modal-close" type="button" uk-close></button>
+            <br /><br />
+
+            <form action="{% url 'signin_handler' %}" method="post">
+                <fieldset class="uk-fieldset">
+
+                    <legend class="uk-legend">Sign in</legend>
+
+                    {% for field in sign_in_form %}
+
+                        <div class="uk-margin">
+                            {{ field.label }}
+                            {{ field }}
+                        </div>
+
+                    {% endfor %}
+
+                    <button class="uk-button uk-button-default" type="submit">Log in</button>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="sign-up-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+
+            <button class="uk-modal-close" type="button" uk-close></button>
+            <br /><br />
+
+            <form action="{% url 'signup_handler' %}" method="post">
+                <fieldset class="uk-fieldset">
+
+                    <legend class="uk-legend">Sign up</legend>
+
+                    {% for field in sign_up_form %}
+
+                        <div class="uk-margin">
+                            {{ field.label }}
+                            {{ field }}
+                        </div>
+
+                    {% endfor %}
+
+                    <button class="uk-button uk-button-default" type="submit">Sign up</button>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+
+    {% if signin_error_msg %}
+        <div class="uk-alert-danger" uk-alert>You entered incorrect data during logging in</div>
+    {% endif %}
+
+    {% if signup_error_msg %}
+        <div class="uk-alert-danger" uk-alert></div>
+    {% endif %}
+
+</article>
+
+<style>
+
+        .uk-article {
+            margin-left: 150px;
+            margin-top: 120px;
+        }
+
+        @media (max-width: 920px) {
+            .uk-article {
+                margin-left: 30px;
+                margin-top: 20px;
+            }
+        }
+
+
+
+
+
+</style>
 
 {% endblock %}
