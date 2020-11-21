@@ -10,11 +10,17 @@ ALLOWED_HOSTS = ['192.168.1.22']
 
 INSTALLED_APPS = [
 
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+
     'app.apps.MyAppConfig'
 
 ]
 
 MIDDLEWARE = [
+
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware'
 
 ]
 
