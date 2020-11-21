@@ -6,6 +6,8 @@ SECRET_KEY = 'y+$w$u45@%c2de$^4v1gb^&8h9v!_ikgdsg59cbqt6nh($*2bl'
 
 DEBUG = True
 
+ALLOWED_HOSTS = ['192.168.1.22']
+
 INSTALLED_APPS = [
 
     'app.apps.MyAppConfig'
