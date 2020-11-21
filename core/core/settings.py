@@ -1,4 +1,5 @@
 from pathlib import Path
+from envs import env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -64,3 +65,9 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Almaty'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = env('EMAIL')
+EMAIL_HOST_PASSWORD = env('PASSWORD')
+EMAIL_PORT = 587
