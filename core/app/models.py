@@ -18,5 +18,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'email'
-
     objects = OverrodeUserManager()
+
+    def __str__(self):
+        return f"User #{self._get_pk_val()} with email '{self.email}'"
