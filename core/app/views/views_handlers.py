@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from ..forms import SignInForm, SignUpForm
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.views.decorators.http import require_http_methods
+
+from ..forms import SignInForm, SignUpForm
 
 
 @require_http_methods(["POST"])

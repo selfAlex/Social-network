@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from ..forms import SignInForm, SignUpForm
 from django.contrib.auth.decorators import login_required
+
+from ..forms import SignInForm, SignUpForm
 
 
 def index_page(request):
