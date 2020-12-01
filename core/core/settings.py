@@ -1,3 +1,5 @@
+import os
+
 from pathlib import Path
 from envs import env
 
@@ -65,6 +67,9 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Almaty'
+
+DIRNAME = os.path.dirname(__file__) + '\\app\\'
+STATIC_ROOT = os.path.join(DIRNAME, 'static')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
