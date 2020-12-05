@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.staticfiles',
 
     'app.apps.MyAppConfig'
 
@@ -68,8 +69,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Almaty'
 
-DIRNAME = os.path.dirname(__file__) + '\\app\\'
-STATIC_ROOT = os.path.join(DIRNAME, 'static')
+STATIC_URL = '/static/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
