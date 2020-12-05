@@ -4,6 +4,13 @@
 
 <head>
 
+    {% load static %}
+
+    <meta property="og:title" content="Social network" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://192.168.1.22:8000"/>
+    <meta property="og:image" content="{% static 'app/imgs/logo.png' %}" />
+
     <meta charset="UTF-8">
     <meta name="description" content="Social network on the Django web framework">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +20,6 @@
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css" />
 
-    {% load static %}
     <link rel="icon" href="{% static 'app/imgs/favicon.ico' %}">
 
     <!-- UIkit JS -->
