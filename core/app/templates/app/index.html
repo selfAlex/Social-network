@@ -78,7 +78,21 @@ Social network
     {% endif %}
 
     {% if signup_error_msg %}
-        <div class="uk-alert-danger" uk-alert></div>
+        <div class="uk-alert-danger" uk-alert>signup_error_msg</div>
+    {% endif %}
+
+    {% load tags %}
+
+    {% check_session_error_variables request as error_message %}
+
+    {% if error_message %}
+        <div class="uk-alert-danger" uk-alert>{{ error_message }}</div>
+    {% endif %}
+
+    {% check_session_info_variables request as info_message %}
+
+    {% if info_message %}
+        <div class="uk-alert-primary" uk-alert>{{ info_message }}</div>
     {% endif %}
 
 </article>
@@ -96,10 +110,6 @@ Social network
                 margin-top: 20px;
             }
         }
-
-
-
-
 
 </style>
 
