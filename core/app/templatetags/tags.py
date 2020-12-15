@@ -20,7 +20,8 @@ def check_session_error_variables(request):
 
 @register.simple_tag
 def check_session_info_variables(request):
-    session_info_variables_dict = {'infomessage_emailsent': 'A confirmation mail was sent to the entered email address'}
+    session_info_variables_dict = {'infomessage_emailsent': 'A confirmation mail was sent to the entered email address',
+                                   'infomessage_verified': 'You have successfully registered, log in.'}
 
     for info_variable in session_info_variables_dict:
         if request.session.get(info_variable, default=False):
