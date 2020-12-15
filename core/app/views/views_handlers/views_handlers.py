@@ -63,9 +63,8 @@ def verify_user(request, email, password):
 
         del request.session['socialnetwork_verification']
 
-        login(request, user)
-
-        return render(request, 'app/profile.html', {'new_user_msg': True})
+        request.session['infomessage_verified'] = True
+        return redirect('index_page')
     else:
         request.session['errormessage_invalidverification'] = True
         return redirect('index_page')
