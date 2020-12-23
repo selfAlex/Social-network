@@ -21,7 +21,7 @@ def send_verification_mail(email, password):
               message='''Hello, thank you for your interest in the project.
 
                             To verify your account, follow the link:
-                            http://192.168.1.22:8000/handle/verify/{}/{}
+                            http://localhost:8000/handle/verify/{}/{}
 
                               '''.format(base64.b64encode(email.encode('ascii')).decode('ascii'),
                                          base64.b64encode(password.encode('ascii')).decode('ascii')),
