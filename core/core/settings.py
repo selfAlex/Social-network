@@ -1,5 +1,3 @@
-import os
-
 from pathlib import Path
 from envs import env
 
@@ -9,7 +7,7 @@ SECRET_KEY = 'y+$w$u45@%c2de$^4v1gb^&8h9v!_ikgdsg59cbqt6nh($*2bl'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.22']
+ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = [
 
@@ -53,7 +51,7 @@ TEMPLATES = [
 DATABASES = {
 
     'default': {
-        
+
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'social-network',
         'USER': 'postgres',
