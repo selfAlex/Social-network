@@ -7,7 +7,7 @@ SECRET_KEY = 'y+$w$u45@%c2de$^4v1gb^&8h9v!_ikgdsg59cbqt6nh($*2bl'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000', '192.168.1.22:8000']
 
 INSTALLED_APPS = [
 
@@ -15,9 +15,15 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.staticfiles',
+    'django.contrib.messages',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     'app.apps.MyAppConfig'
-
 ]
 
 AUTH_USER_MODEL = 'app.User'
@@ -27,7 +33,8 @@ LOGIN_URL = 'index_page'
 MIDDLEWARE = [
 
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware'
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 
 ]
 
@@ -46,6 +53,11 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 DATABASES = {
@@ -89,3 +101,22 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = env('EMAIL')
 EMAIL_HOST_PASSWORD = env('PASSWORD')
 EMAIL_PORT = 587
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '654079109227-aqfphtn6mfqif8cgjgtu6rumksolc2oj.apps.googleusercontent.com',
+            'secret': 'xwo2v6kt9ZX5d9aH_QePBQw5',
+            'key': ''
+        }
+    }
+}
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+LOGIN_REDIRECT_URL = '/'
