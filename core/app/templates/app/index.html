@@ -17,6 +17,10 @@ Social network
     <button class="uk-button uk-button-text" uk-toggle="target: #sign-in-modal" type="button">Sign in</button>
     <button class="uk-button uk-button-text" uk-toggle="target: #sign-up-modal" type="button" style="margin-left: 5px;">Sign up</button>
 
+    <br /><br />
+    Or use:
+    <a href="socialauth/google/login/?process=login" uk-icon="google"></a>
+
     <div id="sign-in-modal" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
 
@@ -38,6 +42,7 @@ Social network
                     {% endfor %}
 
                     <button class="uk-button uk-button-default" type="submit">Log in</button>
+
 
                 </fieldset>
             </form>
