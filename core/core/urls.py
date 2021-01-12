@@ -12,9 +12,10 @@ for provider in providers.registry.get_list():
 urlpatterns = [
 
     path('', include('app.urls.urls')),
-
     path('handle/', include('app.urls.urls_handlers')),
 
     path('socialauth/', include(providers_urlpatterns)),
+
+    path('api/v1/', include('app.rest.urlsrest'))
 
 ]
