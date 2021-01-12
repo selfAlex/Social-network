@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    API
+{% endblock %}
+
+{% load tags %}
+
+{% block body %}
+
+    {% get_current_user_token request as current_user_token %}
+
+    <div style="margin-left: 150px; margin-top: 120px;">
+
+            {% if current_user_token %}
+
+                <h3 class="uk-text-lead">Your token: {{ current_user_token.key }} </h3>
+
+                <br />
+
+                <a class="uk-button uk-button-danger" type="submit" href="{% url 'delete_token_handler' %}">Delete</a>
+
+            {% else %}
+
+                <h3 class="uk-text-lead">You don't have a token</h3>
+
+                <br />
+
+                <a class="uk-button uk-button-default" type="submit" href="{% url 'create_token_handler' %}">Create</a>
+
+            {% endif %}
+
+    </div>
+
+{% endblock %}
