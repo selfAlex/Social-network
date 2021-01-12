@@ -1,13 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib.auth.hashers import make_password, check_password
 
 from django.views.decorators.http import require_http_methods
 
+from rest_framework.authtoken.models import Token
+
 import base64
 
-from ...forms import SignInForm, SignUpForm
+from ...forms import SignInForm, SignUpForm, ProfileEditForm
 from .views_handlers_functions import is_email_unique, send_verification_mail
 
 
@@ -70,7 +72,42 @@ def verify_user(request, email, password):
         return redirect('index_page')
 
 
+@require_http_methods(["POST"])
+def profile_edit_handler(request):
+    profile_edit_form = ProfileEditForm(request.POST)
+
+    if profile_edit_form.is_valid():
+        first_name = profile_edit_form.cleaned_data['first_name']
+        surname = profile_edit_form.cleaned_data['surname']
+
+        current_user = request.user
+
+        current_user.first_name = first_name
+        current_user.surname = surname
+
+        current_user.save()
+
+        return redirect('profile_page')
+
+
 def logout_handler(request):
     logout(request)
 
     return redirect('index_page')
+
+
+def create_token(request):
+    token = Token.objects.create(user=request.user)
+
+    token.save()
+
+    return redirect('api_page')
+
+
+def delete_token(request):
+    token = Token.objects.get(user=request.user)
+
+    token.delete()
+
+    return redirect('api_page')
+
