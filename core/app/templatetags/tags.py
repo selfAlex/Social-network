@@ -1,5 +1,7 @@
 from django import template
 
+from rest_framework.authtoken.models import Token
+
 register = template.Library()
 
 
@@ -30,3 +32,10 @@ def check_session_info_variables(request):
             del request.session[info_variable]
 
             return message
+
+
+@register.simple_tag
+def get_current_user_token(request):
+    current_user_token = Token.objects.filter(user=request.user).first()
+
+    return current_user_token
