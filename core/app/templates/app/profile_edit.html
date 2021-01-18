@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit profile
+{% endblock %}
+
+{% block body %}
+
+<article class="uk-article">
+
+    <img data-src=""
+         width="350" height="350" alt="avatar" style="border-radius: 5px;" uk-img>
+
+    <form method="post" action="{% url 'profile_edit_handler' %}">
+        <fieldset class="uk-fieldset">
+            {% for field in profile_edit_form %}
+
+            <div class="uk-margin">
+                {{ field.label }}
+                {{ field }}
+            </div>
+
+            {% endfor %}
+
+            <button class="uk-button uk-button-default" type="submit">Apply</button>
+
+        </fieldset>
+    </form>
+
+</article>
+
+<style>
+
+        .uk-article {
+            margin-left: 150px;
+            margin-top: 120px;
+        }
+
+
+
+
+
+
+</style>
+
+{% endblock %}
