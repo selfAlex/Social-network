@@ -1,10 +1,35 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
 
-{% block title %}
-Social network
-{% endblock %}
+<html lang="en">
 
-{% block body %}
+<head>
+
+    {% load static %}
+
+    <meta property="og:title" content="Social network"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://192.168.1.22:8000"/>
+    <meta property="og:image" content="{% static 'app/imgs/logo.png' %}"/>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Social network on the Django web framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Social network{% endblock %}</title>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css"/>
+
+    <link rel="icon" href="{% static 'app/imgs/favicon.ico' %}">
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.min.js"></script>
+
+
+</head>
+
+<body>
 
 <article class="uk-article">
 
@@ -102,6 +127,10 @@ Social network
 
 </article>
 
+
+
+</body>
+
 <style>
 
         .uk-article {
@@ -117,5 +146,3 @@ Social network
         }
 
 </style>
-
-{% endblock %}
