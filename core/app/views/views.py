@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from datetime import datetime
+
+
 from ..forms import SignInForm, SignUpForm, ProfileEditForm
 
 
@@ -16,6 +19,11 @@ def index_page(request):
 
 @login_required()
 def profile_page(request):
+    if request.user.date_joined is None:
+        request.user.date_joined = datetime.now()
+        request.user.password = None
+        request.user.save()
+
     return render(request, 'app/profile.html')
 
 
