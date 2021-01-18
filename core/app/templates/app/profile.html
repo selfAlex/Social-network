@@ -1,9 +1,54 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    My profile
+My profile
 {% endblock %}
 
 {% block body %}
+
+{% load static %}
+
+<article class="uk-article">
+
+    {% if request.user.images != '' %}
+
+        <img data-src="{{ request.user.images }}"
+         width="350" height="350" alt="avatar" style="border-radius: 5px;" uk-img>
+
+    {% else %}
+
+        <img data-src="{% static 'app/imgs/empty_image.png' %}"
+         width="350" height="350" alt="avatar" style="border-radius: 5px;" uk-img>
+
+    {% endif %}
+        <h3>
+            {% if request.user.first_name == '' and request.user.surname == '' %}
+                Anonymous
+            {% endif %}
+
+            {% if not request.user.first_name == '' %}
+                {{ request.user.first_name }}
+            {% endif %}
+
+            {% if not request.user.surname == '' %}
+                {{ request.user.surname }}
+            {% endif %}
+        </h3>
+
+    <br />
+
+    <a class="uk-button uk-button-default" href="{% url 'profile_edit_page' %}">Edit profile</a>
+
+</article>
+
+<style>
+
+        .uk-article {
+            margin-left: 150px;
+            margin-top: 120px;
+        }
+
+
+</style>
 
 {% endblock %}
