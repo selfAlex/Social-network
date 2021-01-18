@@ -6,5 +6,5 @@ _Python-Django web application_
 ------
 ><h3>Index page</h3>
 
-![index_page](https://i.ibb.co/WxBwsLG/Screenshot-7.png)
+![index_page](https://i.ibb.co/KhQSx0f/Screenshot-1.png)
 ------
